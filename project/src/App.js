@@ -26,7 +26,7 @@ function App() {
   const evaluateRuleAPI = async () => {
     // Ensure rule and userData are set properly
     try {
-      const response = await fetch('https://rule-engine-api1.vercel.app/evaluate', {
+      const response = await fetch('https://rule-engine-api.vercel.app/evaluate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -36,6 +36,7 @@ function App() {
   
       if (!response.ok) {
         const errorText = await response.text(); // Get error message
+        console.error('Error response:', errorText);
         throw new Error(`Network response was not ok: ${errorText}`);
       }
   
@@ -43,12 +44,9 @@ function App() {
       setResult(data.isEligible ? 'Eligible' : 'Not Eligible');
     } catch (error) {
       console.error('Error in evaluateRule:', error); // Log error
-      return { isEligible: false }; // Fallback response
+      // return { isEligible: false }; // Fallback response
+      setResult('Error: Unable to evaluate');
     }
-    // if (!rule) {
-    //   alert('Please enter a rule.');
-    //   return;
-    // }
   };
 
   return (
