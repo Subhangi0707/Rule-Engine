@@ -1,6 +1,6 @@
 export const evaluateRule = async (rule, userData) => {
     try {
-      const response = await fetch('https://rule-engine-api.vercel.app/evaluate', {
+      const response = await fetch('https://rule-engine-api1.vercel.app/evaluate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
