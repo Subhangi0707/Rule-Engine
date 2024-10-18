@@ -26,7 +26,7 @@ function App() {
   const evaluateRuleAPI = async () => {
     // Ensure rule and userData are set properly
     try {
-      const response = await fetch('http://localhost:8080/evaluate', {
+      const response = await fetch('http://rule-engine-api.vercel.app/evaluate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
